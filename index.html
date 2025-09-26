@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Chainitorn C.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #001a4d;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #000c2e;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-family: 'Bebas Neue';
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
+    }
+
+    .hero-image img {
+      max-width: 300px;
+      height: auto;
+    }
+
+    .hero-text {
+      text-align: left;
+      /* ชิดซ้าย */
+      max-width: 600px;
+    }
+
+    .hero-text h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      margin-bottom: 10px;
+    }
+
+    .btn img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #001a4d;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .about {
+      background-color: #001a4d;
+      /* น้ำเงินเข้ม */
+      color: #fff;
+      padding: 60px 40px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about-title {
+      flex: 1;
+      text-align: left;
+    }
+
+    .about-title h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .about-content {
+      flex: 2;
+      text-align: right;
+      max-width: 600px;
+    }
+
+    .about-content h3 {
+      flex: 2;
+      text-align: right;
+      max-width: 600px;
+      font-size: 26px;
+    }
+
+    .about-content p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .about-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .about-buttons .btn.download {
+      background: #4b5dff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .about-buttons .btn.icon img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .about-image {
+      margin-top: 40px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 20px;
+      /* โค้งมนมุม */
+      display: block;
+    }
+
+
+    .capabilities {
+      background-color: #001a4d;
+      /* สีน้ำเงินเข้มเหมือน About */
+      color: #fff;
+      padding: 60px 40px;
+    }
+
+    .capabilities-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cap-title {
+      flex: 1;
+      text-align: left;
+      font-family: 'Bebas Neue';
+    }
+
+    .cap-title h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .cap-content {
+      flex: 2;
+      text-align: right;
+      max-width: 600px;
+      font-family: 'Manrope';
+    }
+
+    .cap-content p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #c7c7c7;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .skills span {
+      border: 1px solid #484848;
+      /* เส้นขอบสีน้ำเงินอ่อน */
+      color: #fff;
+      /* ตัวอักษรสีขาว */
+      padding: 10px 20px;
+      border-radius: 25px;
+      /* ทำให้เป็น pill shape */
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      /* ตัวอักษรเป็นพิมพ์ใหญ่ */
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    /* เพิ่ม hover effect */
+    .skills span:hover {
+      background: #001a4d;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(75, 93, 255, 0.6);
+    }
+
+
+    .experience {
+      background: #001a4d;
+      /* น้ำเงินเข้ม */
+      color: #fff;
+      padding: 60px 40px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* หัวข้อ */
+    .exp-title {
+      flex: 1;
+      text-align: left;
+    }
+
+    .exp-title h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* เนื้อหา */
+    .exp-content {
+      flex: 2;
+      text-align: left;
+      max-width: 700px;
+    }
+
+    .job {
+      margin-bottom: 30px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .job-header h3 {
+      font-size: 1.2rem;
+      margin: 0;
+      color: #fff;
+    }
+
+    .job-header .date {
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .job p {
+      margin-top: 10px;
+      line-height: 1.6;
+      color: #c7c7c7;
+    }
+
+
+    /* โครงสร้างหลัก */
+    .contact {
+      background: #051357;
+      /* สีน้ำเงินเข้ม */
+      color: #fff;
+      padding: 60px 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    /* ฝั่งซ้าย */
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+      color: #ccc;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #87a8ff;
+    }
+
+    /* ฝั่งขวา ฟอร์ม */
+    .contact-form {
+      flex: 1;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: #0b0c3d;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: #7a9dff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 140px;
+      height: 54px;
+    }
+
+    .contact-form button:hover {
+      background: #5a7de0;
+      width: 140px;
+      height: 54px;
+    }
+
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000c2e;
+      font-size: 12px;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>CHANINTORN CHALERMSUK</h1>
+    <nav>
+      <a href="#">Work</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <!-- ข้อความอยู่ซ้าย -->
+    <div class="hero-text">
+      <h2>HI, I AM <br> CHAINITORN C.</h2>
+      <p>นักพัฒนาเว็บไซต์ฝั่งฟรอนท์เอนด์จากประเทศไทย</p>
+      <p>ที่มีความหลงใหลในการสร้าง เว็บไซต์ที่เข้าถึงได้และเป็นมิตรกับผู้ใช้</p>
+
+      <a href="#" class="btn">
+        <img src="./imge/button.png" alt="">
+      </a>
+      <a href="#" class="btn">
+        <img src="./imge/Frame 3.png" alt="">
+      </a>
+      <a href="#" class="btn">
+        <img src="./imge/Frame 4.png" alt="">
+      </a>
+    </div>
+    <!-- รูปอยู่ขวา -->
+    <div class="hero-image">
+      <img src="./imge/Profile.png" alt="Profile Image">
+    </div>
+  </section>
+
+  <hr style="background-color: #484848; height: 2px; border: none;">
+
+  <br>
+  <section class="about">
+    <div class="about-container">
+      <!-- หัวข้อ -->
+      <div class="about-title">
+        <h2>ABOUT ME</h2>
+      </div>
+
+      <!-- เนื้อหา -->
+      <div class="about-content">
+        <h3>
+          ผมเป็นนักพัฒนาเว็บไซต์ฝั่งฟรอนท์เอนด์ที่ทำงานอยู่ในกรุงเทพฯ กำลังมองหาโอกาสที่น่าตื่นเต้น
+          ในการทำงานมีพื้นฐานการศึกษาด้านวิศวกรรมซอฟต์แวร์
+        </h3>
+        <br>
+        <p>
+          ชอบให้ความสำคัญกับการเข้าถึง (accessibility) เมื่อพัฒนาเว็บไซต์ มีความกระตือรือร้นและอยากรู้
+          อยากเห็นเกี่ยวกับการแก้ปัญหาต่างๆ ปัจจุบันกำลังศึกษาเรียนรู้เกี่ยวกับ React.js และการออกแบบ
+          เว็บไซต์เล็กน้อยเมื่อไม่ได้เขียนโปรแกรม ดิฉัน/ผมชอบเล่นฟุตบอล ถ่ายภาพ และเล่นเกม FIFA, Diablo
+          กำลังเรียนรู้เพิ่มเติมเพื่อพัฒนาทักษะอยู่เสมอ
+        </p>
+
+        <!-- ปุ่ม -->
+        <div class="about-buttons">
+          <a href="#" class="btn download">DOWNLOAD RESUME</a>
+          <a href="#" class="btn icon"><img src="./imge/Frame 3.png" alt=""></a>
+          <a href="#" class="btn icon"><img src="./imge/Frame 4.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- รูปด้านล่าง -->
+    <div class="about-image">
+      <img src="./imge/aboutme.png" alt="About Me Image">
+    </div>
+  </section>
+  <hr style="background-color: #484848; height: 2px; border: none;">
+
+  <section class="capabilities">
+    <div class="capabilities-container">
+      <!-- หัวข้อ -->
+      <div class="cap-title">
+        <h2>My Capabilities</h2>
+      </div>
+
+      <!-- เนื้อหา -->
+      <div class="cap-content">
+        <p>
+          ผมมองหาโอกาสในการเพิ่มทักษะใหม่ๆ อยู่เสมอ ทั้งการพัฒนาฟรอนท์เอนด์ แบล็กเอนด์
+          การออกแบบ UX/UI และฐานข้อมูล
+        </p>
+
+        <div class="skills">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JAVASCRIPT</span>
+          <span>FLUTTER</span>
+          <span>DART</span>
+          <span>IoT</span>
+          <span>REACT</span>
+          <span>DATABASE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="background-color: #484848; height: 2px; border: none;">
+
+  <section class="experience">
+    <!-- หัวข้อชิดซ้าย -->
+    <div class="exp-title">
+      <h2>MY EXPERIENCE</h2>
+    </div>
+
+    <!-- เนื้อหาอยู่ขวา -->
+    <div class="exp-content">
+      <div class="job">
+        <div class="job-header">
+          <h3>Freelance Developer</h3>
+          <span class="date">Nov 2023 – Present</span>
+        </div>
+        <p>
+          พัฒนาและปรับปรุงส่วนติดต่อผู้ใช้สำหรับเว็บแอปพลิเคชันโดยใช้ React.js ทำงานร่วมกับทีมออกแบบ UX/UI
+          เพื่อสร้างประสบการณ์ผู้ใช้ที่น่าประทับใจ ปรับปรุงความเร็วในการโหลดเว็บไซต์ด้วยเทคนิคการเพิ่มประสิทธิภาพ
+          ต่างๆ รวมถึงพัฒนาและดูแลไลบรารีคอมโพเนนต์ภายในองค์กร
+        </p>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <h3>Front-End Intern</h3>
+          <span class="date">Sep 2023 – Nov 2023</span>
+        </div>
+        <p>
+          พัฒนาเว็บไซต์ลูกค้าโดยใช้ HTML, CSS และ JavaScript
+          ช่วยปรับปรุงการเข้าถึง (Accessibility) ของเว็บไซต์ให้สอดคล้องกับมาตรฐาน WCAG
+          ทำงานร่วมกับทีมแบ็คเอนด์เพื่อเชื่อมต่อ API
+        </p>
+      </div>
+    </div>
+  </section>
+  <hr style="background-color: #484848; height: 2px; border: none;">
+
+  <section class="contact">
+    <!-- ฝั่งซ้าย -->
+    <div class="contact-info">
+      <h2>LET’S CONNECT</h2>
+      <p>Say hello at <a href="mailto:chanintornc@sau.ac.th">chanintornc@sau.ac.th</a></p>
+      <p>For more info, here’s my <a href="#">resume</a></p>
+      <img src="./imge/Frame 13.png" alt="">
+
+      <div class="social-links">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- ฝั่งขวา -->
+    <div class="contact-form">
+      <form action="#">
+        <p style="text-align: left;">Name</p>
+        <input type="text" placeholder="" required>
+        <p style="text-align: left;">Email</p>
+        <input type="email" placeholder="" required>
+        <p style="text-align: left;">Subject</p>
+        <input type="text" placeholder="">
+        <p style="text-align: left;">Message</p>
+        <textarea placeholder="" required></textarea>
+        <button type="submit">SUBMIT</button>
+      </form>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>© 2025 Created by SAU-Dev-Team</p>
+  </footer>
+</body>
+
+</html>
